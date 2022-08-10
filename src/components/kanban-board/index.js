@@ -7,7 +7,19 @@ export default class KanbanBoard extends Component {
     // Each task is uniquely identified by its name. 
     // Therefore, when you perform any operation on tasks, make sure you pick tasks by names (primary key) instead of any kind of index or any other attribute.
     this.state = {
-        tasks: this.props.tasks
+        tasks:[ 
+          {name:  "task_1", stage: 0},
+          {name: "task_2", stage: 0},
+          {name: "task_3", stage: 0}
+          {name: "task_4", stage: 0}
+          {name: "task_5", stage: 0}
+          {name: "task_6", stage: 0}
+          {name: "task_7", stage: 0}
+          {name: "task_8", stage: 0}
+          {name: "task_9", stage: 0}
+          {name: "task_10", stage: 0}
+        ]
+
     };
     this.stagesNames = ['Backlog', 'To Do', 'Ongoing', 'Done'];
   }
@@ -38,10 +50,10 @@ export default class KanbanBoard extends Component {
                                       <div className="li-content layout-row justify-content-between align-items-center">
                                         <span data-testid={`${task.name.split(' ').join('-')}-name`}>{task.name}</span>
                                         <div className="icons">
-                                          <button className="icon-only x-small mx-2" data-testid={`${task.name.split(' ').join('-')}-back`}>
+                                          <button className="icon-only x-small mx-2" data-testid={`${task.name.split(' ').join('-')}-back`}onClick = {backStage(${task},${index})}>
                                             <i className="material-icons">arrow_back</i>
                                           </button>
-                                          <button className="icon-only x-small mx-2" data-testid={`${task.name.split(' ').join('-')}-forward`}>
+                                          <button className="icon-only x-small mx-2" data-testid={`${task.name.split(' ').join('-')}-forward`}onClick = {forwardStage(${task},${index})}>
                                             <i className="material-icons">arrow_forward</i>
                                           </button>
                                         </div>
@@ -55,6 +67,12 @@ export default class KanbanBoard extends Component {
             })}
         </div>
       </div>
+      backStage{
+
+      }
+      forwardStage{
+
+      }
     );
   }
 }
